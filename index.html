@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugisha Jovan | Software Engineer & Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#6366f1', // indigo-500
+                            dark: '#8b5cf6',  // violet-500
+                        },
+                        secondary: {
+                            light: '#10b981', // emerald-500
+                            dark: '#14b8a6',  // teal-500
+                        },
+                        dark: {
+                            bg: '#0f172a',    // slate-900
+                            surface: '#1e293b',// slate-800
+                            text: '#e2e8f0',  // slate-200
+                            accent: '#64748b'  // slate-500
+                        },
+                        light: {
+                            bg: '#ffffff',    // white
+                            surface: '#f1f5f9',// slate-100
+                            text: '#334155',  // slate-700
+                            accent: '#94a3b8'  // slate-400
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-in forwards',
+                        'gradient': 'gradient 15s ease infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        gradient: {
+                            '0%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '100%': { 'background-position': '0% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            left: -8px;
+            top: 0;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #8b5cf6;
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #8b5cf6;
+        }
+        
+        /* Particles background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: currentColor;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40%/50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+        }
+        
+        .avatar-morph {
+            animation: morph 8s ease-in-out infinite;
+            border: 3px solid currentColor;
+        }
+    </style>
+</head>
+<body class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 backdrop-blur-md bg-light-surface/70 dark:bg-dark-surface/70 border-b border-light-accent/20 dark:border-dark-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-primary-light dark:bg-primary-dark flex items-center justify-center">
+                            <span class="text-white font-bold">M</span>
+                        </div>
+                        <span class="font-display font-bold text-lg">Mugisha Jovan</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#home" class="nav-link">Home</a>
+                        <a href="#about" class="nav-link">About</a>
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#testimonials" class="nav-link">Testimonials</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                    <!-- Dark mode toggle -->
+                    <div class="flex items-center">
+                        <div class="relative inline-block w-12 mr-2 align-middle select-none">
+                            <input type="checkbox" id="toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer focus:outline-none"/>
+                            <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                        </div>
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-300"></i>
+                    </div>
+                    <div class="md:hidden flex items-center">
+                        <button id="menu-toggle" class="p-2 rounded-md focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <!-- Particles background -->
+        <div class="particles" id="particles"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0 space-y-8">
+                <div class="space-y-4">
+                    <p class="text-sm font-semibold tracking-wider uppercase text-primary-light dark:text-primary-dark animate-fade-in">Hello, I'm</p>
+                    <h1 class="text-5xl md:text-7xl font-display font-bold animate-fade-in" style="animation-delay: 0.2s;">Mugisha Jovan</h1>
+                    <div class="space-y-2">
+                        <h2 class="text-2xl md:text-3xl font-medium text-light-accent dark:text-dark-accent animate-fade-in" style="animation-delay: 0.4s;">
+                            <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">
+                                Software Engineer
+                            </span>
+                        </h2>
+                        <p class="text-lg max-w-lg animate-fade-in" style="animation-delay: 0.6s;">I build exceptional digital experiences with cutting-edge technologies and elegant design.</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-4 animate-fade-in" style="animation-delay: 0.8s;">
+                    <a href="#portfolio" class="px-6 py-3 rounded-lg font-medium bg-primary-light dark:bg-primary-dark text-white hover:shadow-lg hover:shadow-primary-light/30 dark:hover:shadow-primary-dark/30 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
+                        View Portfolio
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark opacity-50 rounded-full blur-2xl animate-pulse"></div>
+                    <div class="relative avatar-morph w-full h-full bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark rounded-full overflow-hidden">
+                        <img src="profile.jpeg" 
+                             alt="Mugisha Jovan" 
+                             class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-light-surface dark:bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                    <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">About Me</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg">My journey in technology and passion for solving complex problems</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-2/3 space-y-8">
+                    <h3 class="text-2xl font-display font-medium">Who I Am</h3>
+                    <p class="text-lg">
+                        I'm a full-stack developer with 2 years of experience in building robust, scalable, and user-friendly applications. 
+                        My passion lies in solving complex problems through elegant code and intuitive design.
+                    </p>
+                    <p class="text-lg">
+                        Currently, I specialize in JavaScript, React JavaScript, Node JavaScript and Python. I have been working with React, Node.js, and JavaScript to create exceptional web applications. 
+                        I believe in clean architecture, performance optimization, and creating maintainable code.
+                    </p>
+                    <p class="text-lg">
+                        When I'm not coding, you can find me contributing to open-source projects, mentoring fellow developers, 
+                        or exploring new technologies to stay at the forefront of the industry.
+                    </p>
+                    
+                    <div class="pt-4">
+                        <h4 class="text-xl font-display font-medium mb-6">My Skills & Technologies</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-js text-2xl text-yellow-500"></i>
+                                </div>
+                                <p class="text-center font-medium">JavaScript</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-react text-2xl text-blue-500"></i>
+                                </div>
+                                <p class="text-center font-medium">React.js</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-node-js text-2xl text-green-600"></i>
+                                </div>
+                                <p class="text-center font-medium">Node.js</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-database text-2xl text-blue-400"></i>
+                                </div>
+                                <p class="text-center font-medium">SQL</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-python text-2xl text-blue-700"></i>
+                                </div>
+                                <p class="text-center font-medium">Python</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-html5 text-2xl text-orange-600"></i>
+                                </div>
+                                <p class="text-center font-medium">HTML</p>
+                            </div>
+                            <div class="skill-card p-4 rounded-lg border border-light-accent/20 dark:border-dark-accent/20 hover:shadow-md transition-all">
+                                <div class="w-12 h-12 mb-3 mx-auto bg-primary-light/10 dark:bg-primary-dark/10 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-css3-alt text-2xl text-blue-500"></i>
+                                </div>
+                                <p class="text-center font-medium">CSS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3">
+                    <div class="bg-light-bg dark:bg-dark-surface border border-light-accent/20 dark:border-dark-accent/20 rounded-xl p-6 sticky top-24">
+                        <h3 class="text-xl font-display font-medium mb-6">Professional Timeline</h3>
+                        <div class="relative">
+                            <div class="border-l-2 border-primary-light dark:border-primary-dark absolute h-full left-4 top-0"></div>
+                            
+                            <div class="relative pl-10 pb-8 timeline-item">
+                                <div class="timeline-item before:bg-primary-light dark:before:bg-primary-dark">
+                                    <h4 class="font-medium">IT and Software Engineering Intern</h4>
+                                    <p class="text-sm text-light-accent dark:text-dark-accent">Sumic IT Solutions Ltd | Internship | May 2025 - Present</p>
+                                    <p class="mt-2 text-sm">On-site, Kampala, Central Region, Uganda</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative pl-10 pb-8 timeline-item">
+                                <div class="timeline-item before:bg-primary-light dark:before:bg-primary-dark">
+                                    <h4 class="font-medium">Graphics Designer and Web Designer</h4>
+                                    <p class="text-sm text-light-accent dark:text-dark-accent">Freelance | Nov 2023 - May 2025</p>
+                                    <p class="mt-2 text-sm">Remote, Kampala, Central Region, Uganda</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative pl-10 pb-8 timeline-item">
+                                <div class="timeline-item before:bg-primary-light dark:before:bg-primary-dark">
+                                    <h4 class="font-medium">Internship Trainee</h4>
+                                    <p class="text-sm text-light-accent dark:text-dark-accent">Kyambogo University | Internship | Jun 2024 - Jul 2024</p>
+                                    <p class="mt-2 text-sm">Kampala, Central Region, Uganda</p>
+                                </div>
+                            </div>
+                            
+                            <div class="relative pl-10 timeline-item">
+                                <div class="timeline-item before:bg-primary-light dark:before:bg-primary-dark">
+                                    <h4 class="font-medium">B.S. Information Technology</h4>
+                                    <p class="text-sm text-light-accent dark:text-dark-accent">Kyambogo University | 2023 - 2026</p>
+                                    <p class="mt-2 text-sm">Focus on Computer Repair and Maintenance, Web Development, Computer Networking basics, Linux system administration</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-light-accent/20 dark:border-dark-accent/20">
+                            <a id="download-resume-btn" href="resume.pdf" download class="w-full py-3 px-4 rounded-lg font-medium bg-primary-light dark:bg-primary-dark text-white hover:shadow-lg hover:shadow-primary-light/30 dark:hover:shadow-primary-dark/30 transition-all duration-300 flex items-center justify-center space-x-2 focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark active:scale-95">
+                                <span>View Full Resume</span>
+                                <svg id="resume-spinner" class="hidden animate-spin ml-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-light-bg dark:bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                    <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">My Portfolio</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg">Selected projects that demonstrate my technical expertise and problem-solving skills</p>
+            </div>
+            
+            <div class="mb-12 flex flex-wrap justify-center gap-4">
+                <button class="filter-btn px-4 py-2 rounded-full font-medium bg-primary-light dark:bg-primary-dark text-white">All</button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                             alt="E-Commerce Dashboard" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">React</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Node.js</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">MongoDB</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">E-Commerce Analytics Dashboard</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A comprehensive dashboard for e-commerce businesses with real-time data visualization.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80" 
+                             alt="Task Management App" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Vue.js</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Firebase</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">Task Management App</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A collaborative task management solution with drag-and-drop interface and team functionality.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80" 
+                             alt="Blog Platform" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Next.js</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">GraphQL</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">PostgreSQL</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">Modern Blog Platform</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A performant blogging platform with rich text editing, SEO optimization, and analytics.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                             alt="API Gateway" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Node.js</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Express</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Kubernetes</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">Microservices API Gateway</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A high-performance API gateway for microservices architecture with rate limiting and authentication.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                             alt="CRM System" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">React</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Redux</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Django</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">Customer Relationship Management</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A comprehensive CRM solution with lead tracking, sales pipelines, and reporting.</p>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card bg-light-surface dark:bg-dark-surface rounded-xl overflow-hidden border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-xl relative">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1752&q=80" 
+                             alt="AI Assistant" 
+                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 flex flex-col justify-end p-6 transition-all duration-300 transform translate-y-4">
+                            <div class="flex gap-2 mb-3 flex-wrap">
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Python</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">TensorFlow</span>
+                                <span class="px-2 py-1 text-xs rounded-full bg-primary-light/20 dark:bg-primary-dark/20 text-primary-light dark:text-primary-dark">Flask</span>
+                            </div>
+                            <div class="flex gap-3">
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fas fa-external-link-alt text-gray-800"></i>
+                                </a>
+                                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 transition-colors">
+                                    <i class="fab fa-github text-gray-800"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-display font-medium mb-2">AI-Powered Virtual Assistant</h3>
+                        <p class="text-light-accent/80 dark:text-dark-accent/80 mb-4">A smart assistant that learns from user behavior to provide personalized recommendations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" id="view-all-projects-btn" class="inline-flex items-center px-6 py-3 border border-light-accent/20 dark:border-dark-accent/20 rounded-lg font-medium hover:bg-light-surface dark:hover:bg-dark-surface transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark active:scale-95 relative overflow-hidden">
+                    <span>View All Projects</span>
+                    <svg id="projects-spinner" class="hidden animate-spin ml-2 h-5 w-5 text-primary-light dark:text-primary-dark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path></svg>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-light-surface dark:bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                    <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">Services</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg">Comprehensive technology solutions to help your business thrive in the digital world</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-xl bg-primary-light/10 dark:bg-primary-dark/10 flex items-center justify-center">
+                        <i class="fas fa-code text-3xl text-primary-light dark:text-primary-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-medium mb-3">Web Design & Development</h3>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80">Custom website design, e-commerce development, CMS integration, and SEO optimization for your business.</p>
+                </div>
+                
+                <div class="service-card p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-xl bg-primary-light/10 dark:bg-primary-dark/10 flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-3xl text-primary-light dark:text-primary-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-medium mb-3">Graphics Design</h3>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80">Professional logo design, business cards, social media graphics, and complete branding solutions.</p>
+                </div>
+                
+                <div class="service-card p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-xl bg-primary-light/10 dark:bg-primary-dark/10 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-3xl text-primary-light dark:text-primary-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-medium mb-3">IT Training</h3>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80">Comprehensive training in web development, mobile app development, database management, and network security.</p>
+                </div>
+                
+                <div class="service-card p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-xl bg-primary-light/10 dark:bg-primary-dark/10 flex items-center justify-center">
+                        <i class="fas fa-bullhorn text-3xl text-primary-light dark:text-primary-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-medium mb-3">Digital Marketing</h3>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80">Social media marketing, SEO, content marketing, email campaigns, and PPC advertising solutions.</p>
+                </div>
+
+                <div class="service-card p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg hover:-translate-y-2">
+                    <div class="w-16 h-16 mb-6 rounded-xl bg-primary-light/10 dark:bg-primary-dark/10 flex items-center justify-center">
+                        <i class="fas fa-laptop text-3xl text-primary-light dark:text-primary-dark"></i>
+                    </div>
+                    <h3 class="text-xl font-display font-medium mb-3">Phones & Laptops Sales</h3>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80">High-quality smartphones and laptops, both new and refurbished, with warranty and bulk purchase options.</p>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="mt-16 p-8 rounded-xl bg-light-bg dark:bg-dark-bg border border-light-accent/20 dark:border-dark-accent/20">
+                <h3 class="text-2xl font-display font-medium text-center mb-8">Why Choose Me?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4">
+                        <i class="fas fa-check-circle text-2xl text-primary-light dark:text-primary-dark mb-3"></i>
+                        <p class="font-medium">Affordable Pricing</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <i class="fas fa-check-circle text-2xl text-primary-light dark:text-primary-dark mb-3"></i>
+                        <p class="font-medium">Fast & Reliable</p>
+                    </div>
+                    <div class="text-center p-4">
+                        <i class="fas fa-check-circle text-2xl text-primary-light dark:text-primary-dark mb-3"></i>
+                        <p class="font-medium">Satisfaction Guaranteed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-light-bg dark:bg-dark-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                    <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">Client Testimonials</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg">What clients and colleagues say about working with me</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-light-surface dark:bg-dark-surface p-8 rounded-xl border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="richard.jpeg" 
+                                 alt="Richard Ssenkungu" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Richard Ssenkungu</h4>
+                            <p class="text-sm text-light-accent dark:text-dark-accent">CEO, Gocad Fashion Store.</p>
+                        </div>
+                    </div>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80 italic mb-4">"Working with Mugisha was an absolute game-changer for our business. 
+                        The website he developed for Gocad Fashion Store is not only visually stunning but
+                         also incredibly functional and easy to manage. He took the time to understand our brand and delivered something that truly represents who we are. 
+                        We've seen increased engagement and smoother customer experiences since launch.
+                         Highly recommended!"</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-light-surface dark:bg-dark-surface p-8 rounded-xl border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                                 alt="Michael Chen" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Michael Chen</h4>
+                            <p class="text-sm text-light-accent dark:text-dark-accent">Product Manager, DigitalNest</p>
+                        </div>
+                    </div>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80 italic mb-4">"Working with Mugisha on our SaaS application was a game-changer. His architectural decisions reduced our AWS costs by 25% while improving system reliability."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-light-surface dark:bg-dark-surface p-8 rounded-xl border border-light-accent/20 dark:border-dark-accent/20 transition-all duration-300 hover:shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" 
+                                 alt="Emily Rodriguez" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-medium">Emily Rodriguez</h4>
+                            <p class="text-sm text-light-accent dark:text-dark-accent">Founder, StartupVentures</p>
+                        </div>
+                    </div>
+                    <p class="text-light-accent/80 dark:text-dark-accent/80 italic mb-4">"Mugisha built our MVP in record time with impeccable code quality. His ability to understand our vision and translate it into technical solutions was impressive."</p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-light-accent/20 dark:border-dark-accent/20 rounded-lg font-medium hover:bg-light-surface dark:hover:bg-dark-surface transition-all duration-300">
+                    View All Testimonials
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-light-surface dark:bg-dark-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+                    <span class="gradient-text bg-gradient-to-r from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark">Get In Touch</span>
+                </h2>
+                <p class="max-w-2xl mx-auto text-lg">Have a project in mind or want to discuss potential opportunities?</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-1">Name *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 rounded-lg border border-light-accent/30 dark:border-dark-accent/30 bg-light-bg dark:bg-dark-bg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-1">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 rounded-lg border border-light-accent/30 dark:border-dark-accent/30 bg-light-bg dark:bg-dark-bg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" 
+                                   class="w-full px-4 py-3 rounded-lg border border-light-accent/30 dark:border-dark-accent/30 bg-light-bg dark:bg-dark-bg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-1">Message *</label>
+                            <textarea id="message" name="message" rows="5" required 
+                                      class="w-full px-4 py-3 rounded-lg border border-light-accent/30 dark:border-dark-accent/30 bg-light-bg dark:bg-dark-bg focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full px-6 py-3 rounded-lg font-medium bg-primary-light dark:bg-primary-dark text-white hover:shadow-lg hover:shadow-primary-light/30 dark:hover:shadow-primary-dark/30 transition-all duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-light-bg dark:bg-dark-bg rounded-xl border border-light-accent/20 dark:border-dark-accent/20 p-8 h-full">
+                        <h3 class="text-xl font-display font-medium mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-primary-light dark:text-primary-dark"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Location</h4>
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">Kampala, Uganda</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-primary-light dark:text-primary-dark"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Email</h4>
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">mugishajovan13@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-primary-light dark:text-primary-dark"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Phone</h4>
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">+256701720024</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-primary-light/10 dark:bg-primary-dark/10 flex-shrink-0 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-clock text-primary-light dark:text-primary-dark"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium mb-1">Working Hours</h4>
+                                    
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">Monday - Friday: 9am - 5pm</p>
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">Saturday: 9am-4pm</p>
+                                    <p class="text-light-accent/80 dark:text-dark-accent/80">Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10 pt-6 border-t border-light-accent/20 dark:border-dark-accent/20">
+                            <h4 class="font-medium mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/mugisha-jovan" class="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/mugisha-jovan-5b81902bb" class="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://wa.me/256701720024" class="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                                <a href="https://x.com/mugisha_jo45281?t=0zCqQgL1hg9RxE2mex97sw&s=08" class="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="currentColor" class="h-5 w-5"><path d="M87.6 28.2H104L75.2 62.1L108.2 104H84.1L63.7 78.1L40.2 104H24.1L54.1 68.7L22.1 28.2H47.1L65.2 51.1L87.6 28.2ZM83.2 97.1H90.9L49.2 35.1H41.1L83.2 97.1Z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light-bg dark:bg-dark-bg border-t border-light-accent/20 dark:border-dark-accent/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-primary-light dark:bg-primary-dark flex items-center justify-center">
+                            <span class="text-white font-bold">M</span>
+                        </div>
+                        <span class="font-display font-bold text-lg">Mugisha Jovan</span>
+                    </a>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+                    <a href="#home" class="text-sm hover:underline hover:underline-offset-4">Home</a>
+                    <a href="#about" class="text-sm hover:underline hover:underline-offset-4">About</a>
+                    <a href="#portfolio" class="text-sm hover:underline hover:underline-offset-4">Portfolio</a>
+                    <a href="#services" class="text-sm hover:underline hover:underline-offset-4">Services</a>
+                    <a href="#testimonials" class="text-sm hover:underline hover:underline-offset-4">Testimonials</a>
+                    <a href="#contact" class="text-sm hover:underline hover:underline-offset-4">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/mugisha-jovan" class="w-8 h-8 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mugisha-jovan-5b81902bb" class="w-8 h-8 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/256701720024" class="w-8 h-8 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://x.com/mugisha_jo45281?t=0zCqQgL1hg9RxE2mex97sw&s=08" class="w-8 h-8 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center text-primary-light dark:text-primary-dark hover:bg-primary-light/10 dark:hover:bg-primary-dark/10 transition-colors" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="currentColor" class="h-5 w-5"><path d="M87.6 28.2H104L75.2 62.1L108.2 104H84.1L63.7 78.1L40.2 104H24.1L54.1 68.7L22.1 28.2H47.1L65.2 51.1L87.6 28.2ZM83.2 97.1H90.9L49.2 35.1H41.1L83.2 97.1Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-light-accent/20 dark:border-dark-accent/20 text-center">
+                <p class="text-sm text-light-accent/80 dark:text-dark-accent/80">© <span id="year"></span> Mugisha Jovan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark/Light mode toggle
+        const toggle = document.getElementById('toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            toggle.checked = true;
+        }
+        
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.add('dark');
+                localStorage.setItem('darkMode', true);
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('darkMode', false);
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('nav .hidden.md\\:flex');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('absolute');
+            navLinks.classList.toggle('top-16');
+            navLinks.classList.toggle('left-0');
+            navLinks.classList.toggle('w-full');
+            navLinks.classList.toggle('bg-light-surface/95');
+            navLinks.classList.toggle('dark:bg-dark-surface/95');
+            navLinks.classList.toggle('p-4');
+            navLinks.classList.toggle('flex-col');
+            navLinks.classList.toggle('space-y-4');
+            navLinks.classList.toggle('space-x-8');
+            navLinks.classList.toggle('md:flex');
+        });
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Create particles for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f43f5e', '#10b981'];
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 4 + 1;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 10 + Math.random() * 20;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Apply styles
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.color = color;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles after page load
+        window.addEventListener('load', createParticles);
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Responsive: already using flex and w-full, but ensure mobile spacing
+        // Interactivity: show spinner on click
+        document.getElementById('download-resume-btn').addEventListener('click', function(e) {
+            var spinner = document.getElementById('resume-spinner');
+            var errorDiv = document.getElementById('resume-error');
+            errorDiv.classList.add('hidden');
+            spinner.classList.remove('hidden');
+            e.preventDefault();
+            fetch('resume.pdf', { method: 'HEAD' })
+                .then(function(response) {
+                    spinner.classList.add('hidden');
+                    if (response.ok) {
+                        errorDiv.classList.add('hidden');
+                        var link = document.createElement('a');
+                        link.href = 'resume.pdf';
+                        link.download = 'resume.pdf';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } else {
+                        errorDiv.textContent = 'Resume file not found. Please try again later.';
+                        errorDiv.classList.remove('hidden');
+                    }
+                })
+                .catch(function() {
+                    spinner.classList.add('hidden');
+                    errorDiv.textContent = 'Resume file not found. Please try again later.';
+                    errorDiv.classList.remove('hidden');
+                });
+        });
+
+        document.getElementById('view-all-projects-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            var spinner = document.getElementById('projects-spinner');
+            spinner.classList.remove('hidden');
+            setTimeout(function() {
+                spinner.classList.add('hidden');
+                // You can redirect or show a modal here if needed
+            }, 1500);
+            // Ripple effect
+            var btn = this;
+            var ripple = document.createElement('span');
+            ripple.className = 'absolute bg-primary-light dark:bg-primary-dark opacity-20 rounded-full pointer-events-none';
+            var rect = btn.getBoundingClientRect();
+            var size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+            btn.appendChild(ripple);
+            setTimeout(function() {
+                ripple.remove();
+            }, 600);
+        });
+    </script>
+</body>
+</html>
